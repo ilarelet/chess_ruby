@@ -1,4 +1,5 @@
 require_relative '../lib/board.rb'
+require_relative '../lib/cell.rb'
 require 'rspec'
 
 describe Board do
@@ -16,6 +17,12 @@ describe Board do
                 index = 'A1'
                 cell = board_1.cell(index)
                 expect(cell).to equal(board_1.cells[0][0])
+            end
+            
+            it 'returns cell e4' do
+                index = 'e4'
+                cell = board_1.cell(index)
+                expect(cell).to equal(board_1.cells[3][4])
             end
         end
 
@@ -56,15 +63,25 @@ describe Board do
     describe '#find_indexes' do
         context 'If a valid cell is given' do
             it 'cell A1 matches with [0, 0]' do
-                cell = 'A1'
+                index = 'A1'
+                cell = board_1.cell(index)
                 result = board_1.find_indexes(cell) 
-                expect(result).to eql([0,1])
+                expect(result).to eql([0,0])
             end
 
             it 'cell e4 matches with [5, 4]' do
-                cell = 'e4'
+                index = 'e4'
+                cell = board_1.cell(index)
                 result = board_1.find_indexes(cell) 
-                expect(result).to eql([3,5])
+                expect(result).to eql([3,4])
+            end
+        end
+
+        context 'If a new cell is not part of the board' do
+            it 'return nil' do
+                cell = Cell.new(nil)
+                result = board_1.find_indexes(cell) 
+                expect(result).to be_nil
             end
         end
     end
