@@ -6,3 +6,4 @@ class Player
             #add pieces
         )
     end
+end
