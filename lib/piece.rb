@@ -44,6 +44,13 @@ class Piece
         update_cell(@location, self)
     end
 
+    #The method adds a possible move to the list only if it doesn't exceed the board
+    def add_valid_move(row, column)
+        unless (column < 0) or (column > 7) or (row < 0) or (row > 7)
+            @possible_moves.append @board.cells[row][column]
+        end
+    end
+
     #required for children of that class: 
         #find_possible_moves
         #find_possible_attacks

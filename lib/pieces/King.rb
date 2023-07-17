@@ -17,15 +17,14 @@ class King < Piece
         row_index = current_position[0]
         column_index = current_position[1]
         #all possible king's moves 
-        @possible_moves = [
-            @board.cells[row_index+1][column_index],
-            @board.cells[row_index+1][column_index+1],
-            @board.cells[row_index+1][column_index-1],
-            @board.cells[row_index][column_index+1],
-            @board.cells[row_index][column_index-1],
-            @board.cells[row_index-1][column_index],
-            @board.cells[row_index-1][column_index+1],
-            @board.cells[row_index-1][column_index-1]
-        ]
+        @possible_moves = []
+        add_valid_move(row_index+1, column_index-1)
+        add_valid_move(row_index+1, column_index)
+        add_valid_move(row_index+1, column_index+1)
+        add_valid_move(row_index, column_index-1)
+        add_valid_move(row_index, column_index+1)
+        add_valid_move(row_index-1, column_index-1)
+        add_valid_move(row_index-1, column_index)
+        add_valid_move(row_index-1, column_index+1)
     end
 end
