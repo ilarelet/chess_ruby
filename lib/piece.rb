@@ -10,8 +10,9 @@ class Piece
     end
 
     private
-    def change_location(cell)
-        @location = cell
+    #update location with an alphanumerical code
+    def change_location(cell_code)
+        @location = Board.cell(cell_code)
     end
 
     #required for children of that class: 
