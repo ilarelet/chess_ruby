@@ -31,7 +31,7 @@ class Board
         #translate a letter code of the column to the column index
         column_index = letter_code.upcase.ord - 64
         #get a row index from the number code
-        row_index = num_code
+        row_index = num_code-1
         #return the row and column index of the cell
         [row_index, column_index]
     end
