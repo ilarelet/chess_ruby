@@ -1,5 +1,5 @@
 require_relative 'player.rb'
-require_relative "../board.rb"
+require_relative "board.rb"
 
 class Piece
     attr_accessor :location, :alive, :possible_moves, :possible_attacks
