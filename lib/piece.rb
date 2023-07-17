@@ -19,15 +19,15 @@ class Piece
     def move(new_cell)
         self.find_possible_moves
         #Check if new_cell is in the list of possible moves
-        unless @possible_moves.index(board.cell(new_cell))
+        unless @possible_moves.index(@board.cell(new_cell))
             puts "That move is not allowed!"
             return
         end
 
         #if the cell is not empty the figure standing them gets "eaten"
-        unless board.cell(new_cell) == nil
-            board.cell(new_cell).alive = false
-            board.cell(new_cell).killed_message
+        unless @board.cell(new_cell) == nil
+            #@board.cell(new_cell).figure.alive = false
+            #@board.cell(new_cell).figure.killed_message
         end
 
         #changing the location of the piece and emptying the old cell is done with a separate method
@@ -38,10 +38,10 @@ class Piece
     #update location with an alphanumerical code
     def change_location(cell_code)
         #free the previous location
-        update_cell(@location, nil)
+        @board.update_cell(@location, nil)
         #move to the new location
-        @location = Board.cell(cell_code)
-        update_cell(@location, self)
+        @location = @board.cell(cell_code)
+        @board.update_cell(@location, self)
     end
 
     #The method adds a possible move to the list only if it doesn't exceed the board
@@ -54,6 +54,4 @@ class Piece
     #required for children of that class: 
         #find_possible_moves
         #find_possible_attacks
-        #move
-        #attack
 end

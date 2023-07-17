@@ -49,8 +49,7 @@ class Board
         @cells[indexes[0]][indexes[1]]
     end
 
-    def update_cell(cell_code, piece)
-        cell = self.cell(cell_code)
+    def update_cell(cell, piece)
         cell.figure = piece
     end
 end
