@@ -1,8 +1,10 @@
+require_relative 'cell.rb'
+
 class Board
     attr_reader :cells
 
     def initialize #creating a board of 64 empty cells
-        @cells = Array.new(8) {Array.new(8, nil)}
+        @cells = Array.new(8) {Array.new(8, Cell.new(nil))}
     end
 
     #A method to print out the board to the console
