@@ -48,4 +48,9 @@ class Board
         #return the requested cell
         @cells[indexes[0]][indexes[1]]
     end
+
+    def update_cell(cell_code, piece)
+        cell = self.cell(cell_code)
+        cell.figure = piece
+    end
 end

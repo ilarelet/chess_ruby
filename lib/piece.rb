@@ -35,9 +35,11 @@ class Piece
     private
     #update location with an alphanumerical code
     def change_location(cell_code)
-        board.cell(@location) = nil
+        #free the previous location
+        update_cell(@location, nil)
+        #move to the new location
         @location = Board.cell(cell_code)
-        board.cell(cell_code) = self
+        update_cell(cell_code, self)
     end
 
     #required for children of that class: 
