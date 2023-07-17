@@ -4,10 +4,11 @@ require_relative "board.rb"
 class Piece
     attr_accessor :location, :alive, :possible_moves, :possible_attacks
     
-    def initialize(location, player)
+    def initialize(location, player, board)
         @color = player.color
-        @location = location
         @alive = true
+        @board = board
+        @location = @board.cell(location)
     end
 
     def killed_message
@@ -40,7 +41,7 @@ class Piece
         update_cell(@location, nil)
         #move to the new location
         @location = Board.cell(cell_code)
-        update_cell(cell_code, self)
+        update_cell(@location, self)
     end
 
     #required for children of that class: 
