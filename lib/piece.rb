@@ -16,6 +16,7 @@ class Piece
 
     #move to the new_cell (where new_cell is an alphanumerical code)
     def move(new_cell)
+        self.find_possible_moves
         #Check if new_cell is in the list of possible moves
         unless @possible_moves.index(board.cell(new_cell))
             puts "That move is not allowed!"
