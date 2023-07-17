@@ -1,12 +1,16 @@
 require_relative 'player.rb'
 
 class Piece
-    attr_accessor :location, :alive?, :possible_moves, :possible_attacks
+    attr_accessor :location, :alive, :possible_moves, :possible_attacks
     
     def initialize(location, player)
         @color = player.color
         @location = location
-        @alive? = true
+        @alive = true
+    end
+
+    def killed_message
+        puts "#{@color}'s #{@name} was defeated!"
     end
 
     private
