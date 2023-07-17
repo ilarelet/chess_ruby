@@ -52,4 +52,20 @@ describe Board do
             end
         end
     end
+
+    describe '#find_indexes' do
+        context 'If a valid cell is given' do
+            it 'cell A1 matches with [0, 0]' do
+                cell = 'A1'
+                result = board_1.find_indexes(cell) 
+                expect(result).to eql([1,1])
+            end
+
+            it 'cell e4 matches with [5, 4]' do
+                cell = 'e4'
+                result = board_1.find_indexes(cell) 
+                expect(result).to eql([4,5])
+            end
+        end
+    end
 end
