@@ -20,8 +20,7 @@ class Piece
         self.find_possible_moves
         #Check if new_cell is in the list of possible moves
         unless @possible_moves.index(@board.cell(new_cell))
-            puts "That move is not allowed!"
-            return
+            raise ArgumentError.new "That move is not allowed!"
         end
 
         #if the cell is not empty the figure standing them gets "eaten"
