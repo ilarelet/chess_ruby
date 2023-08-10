@@ -18,13 +18,13 @@ class Knight < Piece
         column_index = current_position[1]
         #all possible knight's moves 
         @possible_moves = []
-        add_valid_move([row_index+2, column_index+1])
-        add_valid_move([row_index+2, column_index-1])
-        add_valid_move([row_index-2, column_index+1])
-        add_valid_move([row_index-2, column_index-1])
-        add_valid_move([row_index+1, column_index+2])
-        add_valid_move([row_index+1, column_index-2])
-        add_valid_move([row_index-1, column_index+2])
-        add_valid_move([row_index-1, column_index-2])
+        add_valid_move(row_index+2, column_index+1)
+        add_valid_move(row_index+2, column_index-1)
+        add_valid_move(row_index-2, column_index+1)
+        add_valid_move(row_index-2, column_index-1)
+        add_valid_move(row_index+1, column_index+2)
+        add_valid_move(row_index+1, column_index-2)
+        add_valid_move(row_index-1, column_index+2)
+        add_valid_move(row_index-1, column_index-2)
     end
 end
