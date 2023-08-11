@@ -2,13 +2,14 @@ require_relative 'player.rb'
 require_relative "board.rb"
 
 class Piece
-    attr_accessor :location, :alive, :possible_moves, :possible_attacks
+    attr_accessor :location, :alive, :possible_moves, :possible_attacks, :color
     
     def initialize(location, player, board)
         @color = player.color
         @alive = true
         @board = board
         @location = @board.cell(location)
+        @board.update_cell(@location, self)
     end
 
     def killed_message
@@ -23,7 +24,7 @@ class Piece
             raise ArgumentError.new "That move is not allowed!"
         end
 
-        #if the cell is not empty the figure standing them gets "eaten"
+        #if the cell is not empty the figure standing there gets "eaten"
         unless @board.cell(new_cell) == nil
             #@board.cell(new_cell).figure.alive = false
             #@board.cell(new_cell).figure.killed_message
@@ -46,7 +47,11 @@ class Piece
     #The method adds a possible move to the list only if it doesn't exceed the board
     def add_valid_move(row, column)
         unless (column < 0) or (column > 7) or (row < 0) or (row > 7)
-            @possible_moves.append @board.cells[row][column]
+            if @board.cells[row][column].figure == nil or @board.cells[row][column].figure.color != @color
+                @possible_moves.append @board.cells[row][column]
+            else
+                raise ArgumentError.new "These cell is occupied by your own piece!"
+            end
         end
     end
 

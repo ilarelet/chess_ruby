@@ -25,6 +25,11 @@ describe King do
                 expect(king_1.location).to eql(board_1.cell('E2'))
             end
             
+            it 'Move to a e2 is not allowed if it\'s occupied by another piece' do
+                another_piece = described_class.new('e2', player_1, board_1)
+                expect {king_1.move('e2')}.to raise_error(ArgumentError)
+            end
+            
             it 'Move to c1 is not allowed' do
                 expect {king_1.move('c1')}.to raise_error(ArgumentError)
             end

@@ -16,14 +16,19 @@ describe Knight do
                 expect(knight_1.location).to eql(board_1.cell('a3'))
             end
             
+            it 'Moves successfully to d2' do
+                knight_1.move('d2')
+                expect(knight_1.location).to eql(board_1.cell('d2'))
+            end
+            
             it 'Moves successfully to c3' do
                 knight_1.move('c3')
                 expect(knight_1.location).to eql(board_1.cell('c3'))
             end
-            
-            it 'Moves successfully to d2' do
-                knight_1.move('d2')
-                expect(knight_1.location).to eql(board_1.cell('d2'))
+
+            it 'Move to c3 is not allowed if it\'s occupied by another knight' do
+                knight_another = described_class.new('c3', player_1, board_1)
+                expect {knight_1.move('c3')}.to raise_error(ArgumentError)
             end
             
             it 'Move to c1 is not allowed' do
@@ -76,6 +81,11 @@ describe Knight do
             it 'Moves successfully to c6' do
                 knight_2.move('c6')
                 expect(knight_2.location).to eql(board_1.cell('c6'))
+            end
+            
+            it 'Move to a c6 is not allowed if it\'s occupied by another knight' do
+                knight_another = described_class.new('c3', player_1, board_1)
+                expect {knight_2.move('c3')}.to raise_error(ArgumentError)
             end
             
             it 'Move to a random cell (a7) is not allowed' do
