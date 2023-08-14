@@ -10,13 +10,13 @@ class Rook < Piece
     end
 
     private
-    #metod defining where a King can move
+    #metod defining where a rook can move
     def find_possible_moves
         #figuring out current location indexes
         current_position = @board.find_indexes(@location)
         row_index = current_position[0]
         column_index = current_position[1]
-        #all possible king's moves 
+        #all possible rook's moves 
         @possible_moves = []
         
         #travel each possible direction (up, dowb, right, left)

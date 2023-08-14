@@ -10,13 +10,13 @@ class Bishop < Piece
     end
 
     private
-    #metod defining where a King can move
+    #metod defining where a bishop can move
     def find_possible_moves
         #figuring out current location indexes
         current_position = @board.find_indexes(@location)
         row_index = current_position[0]
         column_index = current_position[1]
-        #all possible king's moves 
+        #all possible bishop's moves 
         @possible_moves = []
         
         #travel each possible direction (4 diagonals)
