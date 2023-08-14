@@ -10,6 +10,7 @@ class Piece
         @board = board
         @location = @board.cell(location)
         @board.update_cell(@location, self)
+        player.add_piece(self)
     end
 
     def killed_message
