@@ -53,4 +53,31 @@ class Game
         Pawn.new('h7', @player_2, @board)
     end
 
+    def make_move(cell_from, cell_to)
+        @board.cell(cell_from).figure.move(cell_to)
+    end
+
+    def take_turn(player)
+        begin
+            #Choosing a piece to move
+            puts "Choose a piece to make a turn: "
+            cell_from = gets.chomp
+            if @board.cell(cell_from).figure.color != player.color
+                puts "This is not your figure"
+                raise
+            end
+            begin
+                #Choosing a target cell
+                puts "Enter a cell to move to:"
+                cell_to = gets.chomp
+                self.make_move(cell_from, cell_to)
+            rescue
+                retry
+            end
+        rescue
+            retry
+        end
+
+        @board.display
+    end            
 end

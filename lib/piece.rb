@@ -71,8 +71,4 @@ class Piece
             row, column = yield row, column 
         end 
     end
-
-    #required for children of that class: 
-        #find_possible_moves
-        #find_possible_attacks
 end

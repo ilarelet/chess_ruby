@@ -10,3 +10,4 @@ game = Game.new(board, player_1, player_2)
 
 game.create_pieces
 board.display
+game.take_turn(player_1)
