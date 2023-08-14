@@ -55,6 +55,22 @@ class Piece
         end
     end
 
+    #method traversing a line for possible moves (REQUIRES A BLOCK defining a line)
+    def add_valid_moves_from_line(row, column)
+        row, column = yield row, column 
+        while (column >= 0) and (column <= 7) and (row >= 0) and (row <= 7)
+            if @board.cells[row][column].figure == nil
+                @possible_moves.append @board.cells[row][column]
+            else
+                if @board.cells[row][column].figure.color != @color
+                    @possible_moves.append @board.cells[row][column]
+                end
+                break
+            end
+            row, column = yield row, column 
+        end 
+    end
+
     #required for children of that class: 
         #find_possible_moves
         #find_possible_attacks
