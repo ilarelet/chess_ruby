@@ -3,11 +3,12 @@ require_relative "../piece.rb"
 require_relative "../board.rb"
 
 class Bishop < Piece
-    attr_reader :name
+    attr_reader :name, :symbol
 
     def initialize(location, player, board)
         super
         @name = "Bishop"
+        @symbol = "b"
     end
 
     private
