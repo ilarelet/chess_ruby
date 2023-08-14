@@ -7,19 +7,6 @@ class Board
         @cells = Array.new(8) {Array.new(8) {Cell.new(nil)}}
     end
 
-    #A method to print out the board to the console
-    def display
-        # First we need to display a "header" of the board for players' convenience
-        print "Row: "
-        ('A'..'H').to_a.each {|column| print " #{column}   "}
-        puts
-        # Then the board gets printed line by line
-        @cells.each_with_index do |row, index| 
-            p "#{index+1}: #{row}"
-        end
-    end 
-
-    
     #This method finds row and column indexes of a given cell
     def find_indexes(cell)
         @cells.each_with_index do |row, row_index|
@@ -49,7 +36,35 @@ class Board
         @cells[indexes[0]][indexes[1]]
     end
 
+    #A method to change a piece occupying a cell
     def update_cell(cell, piece)
         cell.figure = piece
     end
+
+    #A method to print out the board to the console
+    def display
+        # First we need to display a "header" of the board for players' convenience
+        self.display_column_names
+        puts
+        # Then the board gets printed line by line
+        @cells.reverse.each_with_index do |row, index| 
+            print "#{8-index}: "  #"8-index" - because the board is displayed in reversed order (for convenience)
+            row.each do |cell|
+                unless cell.figure == nil
+                    print " [#{cell.figure.symbol}] "
+                else
+                    print ' [ ] ' 
+                end
+            end
+            puts
+        end
+        self.display_column_names
+    end 
+
+    private
+    #displaying a header for a board (used in #display method)
+    def display_column_names
+        print "Row:"
+        ('A'..'H').to_a.each {|column| print " #{column}   "}
+    end 
 end
