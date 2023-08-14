@@ -50,8 +50,6 @@ class Piece
         unless (column < 0) or (column > 7) or (row < 0) or (row > 7)
             if @board.cells[row][column].figure == nil or @board.cells[row][column].figure.color != @color
                 @possible_moves.append @board.cells[row][column]
-            else
-                raise ArgumentError.new "These cell is occupied by your own piece!"
             end
         end
     end
