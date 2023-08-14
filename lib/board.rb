@@ -21,7 +21,6 @@ class Board
     #a method to access an exact cell by it's alphanumerical code
     def cell(cell_code)
         unless cell_code.length == 2 and cell_code[0].match /[A-Ha-h]/ and cell_code[1].match /[1-8]/
-            puts "Enter a correct cell code!"
             raise ArgumentError.new "Incorrect cell index"
         end
         #read the letter and number parts of the cell code
@@ -59,6 +58,7 @@ class Board
             puts
         end
         self.display_column_names
+        puts
     end 
 
     private

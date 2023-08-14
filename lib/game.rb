@@ -10,6 +10,7 @@ require_relative '../lib/pieces/Rook.rb'
 class Game
 
     def initialize(board, player_1, player_2)
+        puts 'Starting a new game... '
         @board = board
         @player_1 = player_1
         @player_2 = player_2
@@ -60,21 +61,21 @@ class Game
     def take_turn(player)
         begin
             #Choosing a piece to move
-            puts "Choose a piece to make a turn: "
+            puts "Player #{player.color}, choose a piece to make a turn: "
             cell_from = gets.chomp
             if @board.cell(cell_from).figure.color != player.color
                 puts "This is not your figure"
                 raise
             end
-            begin
-                #Choosing a target cell
-                puts "Enter a cell to move to:"
-                cell_to = gets.chomp
-                self.make_move(cell_from, cell_to)
-            rescue
-                retry
+            #Choosing a target cell
+            puts 'Enter a cell to move to or enter "back" to choose another piece: '
+            cell_to = gets.chomp
+            if cell_to.downcase == 'back'
+                raise
             end
+            self.make_move(cell_from, cell_to)
         rescue
+            puts "Enter a correct cell code!"
             retry
         end
 

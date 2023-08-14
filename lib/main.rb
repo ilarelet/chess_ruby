@@ -10,4 +10,7 @@ game = Game.new(board, player_1, player_2)
 
 game.create_pieces
 board.display
-game.take_turn(player_1)
+while 1
+    game.take_turn(player_1)
+    game.take_turn(player_2)
+end
