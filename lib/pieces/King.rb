@@ -3,6 +3,7 @@ require_relative "../piece.rb"
 require_relative "../board.rb"
 
 class King < Piece
+    attr_reader :name
 
     def initialize(location, player, board)
         super
