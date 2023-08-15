@@ -11,7 +11,6 @@ class Pawn < Piece
         @symbol = @color == "White" ? "♙" : "♟︎"
     end
 
-    private
     #metod defining where a pawn can move
     def find_possible_moves
         #figuring out current location indexes

@@ -9,10 +9,7 @@ class Knight < Piece
         @symbol = @symbol = @color == "White" ? "♘" : "♞"
     end
 
-    private
     #metod defining where a Knight can move
-    private
-    #metod defining where a King can move
     def find_possible_moves
         #figuring out current location indexes
         current_position = @board.find_indexes(@location)

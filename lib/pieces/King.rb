@@ -11,7 +11,6 @@ class King < Piece
         @symbol = @symbol = @color == "White" ? "♔" : "♚"
     end
 
-    private
     #metod defining where a King can move
     def find_possible_moves
         #figuring out current location indexes

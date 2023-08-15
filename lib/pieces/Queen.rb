@@ -11,7 +11,6 @@ class Queen < Piece
         @symbol = @symbol = @color == "White" ? "♕" : "♛"
     end
 
-    private
     #metod defining where a Queen can move
     def find_possible_moves
         #figuring out current location indexes
