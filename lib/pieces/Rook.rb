@@ -8,7 +8,7 @@ class Rook < Piece
     def initialize(location, player, board)
         super
         @name = "Rook"
-        @symbol = "r"
+        @symbol = @symbol = @color == "White" ? "♖" : "♜"
     end
 
     private

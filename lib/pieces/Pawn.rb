@@ -8,7 +8,7 @@ class Pawn < Piece
     def initialize(location, player, board)
         super
         @name = "Pawn"
-        @symbol = "p"
+        @symbol = @color == "White" ? "♙" : "♟︎"
     end
 
     private

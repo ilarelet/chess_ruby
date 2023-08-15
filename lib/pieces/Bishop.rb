@@ -8,7 +8,7 @@ class Bishop < Piece
     def initialize(location, player, board)
         super
         @name = "Bishop"
-        @symbol = "b"
+        @symbol = @symbol = @color == "White" ? "♗" : "♝"
     end
 
     private

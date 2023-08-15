@@ -8,7 +8,7 @@ class King < Piece
     def initialize(location, player, board)
         super
         @name = "King"
-        @symbol = "K"
+        @symbol = @symbol = @color == "White" ? "♔" : "♚"
     end
 
     private

@@ -6,7 +6,7 @@ class Knight < Piece
     def initialize(location, player, board)
         super
         @name = "Knight"
-        @symbol = "k"
+        @symbol = @symbol = @color == "White" ? "♘" : "♞"
     end
 
     private
