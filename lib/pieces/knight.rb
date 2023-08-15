@@ -25,5 +25,6 @@ class Knight < Piece
         add_valid_move(row_index+1, column_index-2)
         add_valid_move(row_index-1, column_index+2)
         add_valid_move(row_index-1, column_index-2)
+        @possible_moves
     end
 end

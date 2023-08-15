@@ -44,5 +44,6 @@ class Pawn < Piece
         if (column - 1 >= 0) and @board.cells[row_ahead][column - 1].figure != nil and @board.cells[row_ahead][column - 1].figure.color != @color
             @possible_moves.append @board.cells[row_ahead][column - 1]
         end
+        @possible_moves
     end
 end

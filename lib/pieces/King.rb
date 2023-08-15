@@ -27,5 +27,6 @@ class King < Piece
         add_valid_move(row_index-1, column_index-1)
         add_valid_move(row_index-1, column_index)
         add_valid_move(row_index-1, column_index+1)
+        @possible_moves
     end
 end

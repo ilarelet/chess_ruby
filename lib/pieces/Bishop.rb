@@ -41,5 +41,6 @@ class Bishop < Piece
             column -= 1
             [row, column]
         end
+        @possible_moves
     end
 end
