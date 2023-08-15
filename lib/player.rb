@@ -8,4 +8,8 @@ class Player
     def add_piece(piece)
         @pieces.append piece
     end
+
+    def delete_piece(piece)
+        @pieces.delete piece
+    end
 end

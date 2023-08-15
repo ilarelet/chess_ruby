@@ -2,11 +2,11 @@ require_relative 'player.rb'
 require_relative "board.rb"
 
 class Piece
-    attr_accessor :location, :alive, :possible_moves, :possible_attacks, :color
+    attr_accessor :location, :possible_moves, :possible_attacks, :color
     
     def initialize(location, player, board)
         @color = player.color
-        @alive = true
+        @player = player
         @board = board
         @location = @board.cell(location)
         @board.update_cell(@location, self)
@@ -26,13 +26,16 @@ class Piece
         end
 
         #if the cell is not empty the figure standing there gets "eaten"
-        unless @board.cell(new_cell) == nil
-            #@board.cell(new_cell).figure.alive = false
-            #@board.cell(new_cell).figure.killed_message
+        unless @board.cell(new_cell).figure == nil
+            @board.cell(new_cell).figure.killed
         end
 
         #changing the location of the piece and emptying the old cell is done with a separate method
         self.change_location(new_cell)
+    end
+
+    def killed
+        @player.delete_piece(self)
     end
 
     private

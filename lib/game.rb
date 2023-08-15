@@ -39,8 +39,8 @@ class Game
         Rook.new('a8', @player_2, @board)
         Knight.new('b8', @player_2, @board)
         Bishop.new('c8', @player_2, @board)
-        King.new('d8', @player_2, @board)
-        Queen.new('e8', @player_2, @board)
+        Queen.new('d8', @player_2, @board)
+        King.new('e8', @player_2, @board)
         Bishop.new('f8', @player_2, @board)
         Knight.new('g8', @player_2, @board)
         Rook.new('h8', @player_2, @board)
@@ -80,5 +80,22 @@ class Game
         end
 
         @board.display
-    end            
+        
+        if check_for_check(@player_1, @player_2) or check_for_check(@player_2, @player_1)
+            puts "CHECK!"
+            check
+        end
+    end          
+
+    def check_for_check(player_a, player_b)
+        #targeting king of the other player
+        enemy_king = player_b.pieces.find {|piece| piece.name == "King"}
+        #Checking if the targeted king is under attack of one of player_a's pieces
+        player_a.pieces.each do |piece|
+            possible_moves = piece.find_possible_moves
+            if possible_moves != nil and possible_moves.include? enemy_king.location 
+                return true
+            end
+        end
+    end
 end

@@ -50,9 +50,9 @@ class Board
             print "#{8-index}: "  #"8-index" - because the board is displayed in reversed order (for convenience)
             row.each do |cell|
                 unless cell.figure == nil
-                    print " [#{cell.figure.symbol}] "
+                    print " [#{cell.figure.symbol} ] "
                 else
-                    print ' [ ] ' 
+                    print ' [  ] ' 
                 end
             end
             puts
@@ -65,7 +65,7 @@ class Board
     #displaying a header for a board (used in #display method)
     def display_column_names
         print "Row:"
-        ('A'..'H').to_a.each {|column| print " #{column}   "}
+        ('A'..'H').to_a.each {|column| print "  #{column}   "}
         puts
     end 
 end
