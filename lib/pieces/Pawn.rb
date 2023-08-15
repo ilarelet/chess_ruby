@@ -38,10 +38,10 @@ class Pawn < Piece
         end
 
         #checking if attacks are allowed
-        if @board.cells[row_ahead][column + 1].figure != nil and @board.cells[row_ahead][column + 1].figure.color != @color
+        if (column + 1 <= 7) and @board.cells[row_ahead][column + 1].figure != nil and @board.cells[row_ahead][column + 1].figure.color != @color
             @possible_moves.append @board.cells[row_ahead][column + 1]
         end
-        if @board.cells[row_ahead][column - 1].figure != nil and @board.cells[row_ahead][column - 1].figure.color != @color
+        if (column - 1 >= 0) and @board.cells[row_ahead][column - 1].figure != nil and @board.cells[row_ahead][column - 1].figure.color != @color
             @possible_moves.append @board.cells[row_ahead][column - 1]
         end
     end
