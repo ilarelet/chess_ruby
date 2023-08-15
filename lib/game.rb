@@ -81,10 +81,11 @@ class Game
 
         @board.display
         
-        if check_for_check(@player_1, @player_2) or check_for_check(@player_2, @player_1)
-            puts "CHECK!"
-            check
-        end
+        unless @player_1.lost or @player_2.lost
+            if check_for_check(@player_1, @player_2) or check_for_check(@player_2, @player_1)
+                puts "CHECK!"
+            end
+        end 
     end          
 
     def check_for_check(player_a, player_b)

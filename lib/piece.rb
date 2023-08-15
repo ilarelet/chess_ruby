@@ -13,10 +13,6 @@ class Piece
         player.add_piece(self)
     end
 
-    def killed_message
-        puts "#{@color}'s #{@name} was defeated!"
-    end
-
     #move to the new_cell (where new_cell is an alphanumerical code)
     def move(new_cell)
         self.find_possible_moves

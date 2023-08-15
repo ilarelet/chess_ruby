@@ -29,4 +29,9 @@ class King < Piece
         add_valid_move(row_index-1, column_index+1)
         @possible_moves
     end
+
+    #If the king is killed the player loses
+    def killed
+        @player.lose_game
+    end
 end

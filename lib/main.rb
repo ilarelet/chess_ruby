@@ -10,7 +10,8 @@ game = Game.new(board, player_1, player_2)
 
 game.create_pieces
 board.display
-while 1
+until player_1.lost or player_2.lost
     game.take_turn(player_1)
+    break if player_1.lost or player_2.lost
     game.take_turn(player_2)
 end
